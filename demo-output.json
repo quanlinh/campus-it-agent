@@ -1,0 +1,62 @@
+{
+  "mode": "offline scripted demo \u2014 no LLM",
+  "answer": "[email.md]\n# Email access \u2014 fictional sample policy\n\nFor email access problems, check the email service status and try the approved\nwebmail application. If webmail works but a desktop client fails, record the\nclient name and error message for a support ticket. Do not attach private\nmessage contents or share account passwords.\n\n\n[vpn.md]\n# VPN troubleshooting \u2014 fictional sample policy\n\nFor a failed campus VPN connection, first check the VPN service status.\nConfirm ordinary internet access works, then restart the VPN client and retry.\nUse the campus-approved VPN client on a managed device.\nIf the issue persists, draft a support ticket with the error message, device\noperating system, approximate failure time, and steps already tried.\nDo not include passwords or MFA verification codes in the ticket.\n\n\n[wifi.md]\n# Campus WiFi troubleshooting \u2014 fictional sample policy\n\nFor WiFi connection problems, check the WiFi service status and confirm you\nselected the campus network. Disable and re-enable WiFi, then retry.\nIf only one device is affected, restart that device. If the issue persists,\ndraft a support ticket containing the building, device operating system,\nerror message, and approximate failure time. Do not share passwords.\n",
+  "sources": [
+    "email.md",
+    "vpn.md",
+    "wifi.md"
+  ],
+  "drafts": [
+    {
+      "summary": "My VPN connection fails. What should I try?",
+      "description": "My VPN connection fails. What should I try?",
+      "service": "vpn",
+      "state": "draft_only",
+      "submitted": false,
+      "review_required": true
+    }
+  ],
+  "trace": [
+    {
+      "tool": "search_knowledge",
+      "result": {
+        "documents": [
+          {
+            "source": "email.md",
+            "text": "# Email access \u2014 fictional sample policy\n\nFor email access problems, check the email service status and try the approved\nwebmail application. If webmail works but a desktop client fails, record the\nclient name and error message for a support ticket. Do not attach private\nmessage contents or share account passwords.\n"
+          },
+          {
+            "source": "vpn.md",
+            "text": "# VPN troubleshooting \u2014 fictional sample policy\n\nFor a failed campus VPN connection, first check the VPN service status.\nConfirm ordinary internet access works, then restart the VPN client and retry.\nUse the campus-approved VPN client on a managed device.\nIf the issue persists, draft a support ticket with the error message, device\noperating system, approximate failure time, and steps already tried.\nDo not include passwords or MFA verification codes in the ticket.\n"
+          },
+          {
+            "source": "wifi.md",
+            "text": "# Campus WiFi troubleshooting \u2014 fictional sample policy\n\nFor WiFi connection problems, check the WiFi service status and confirm you\nselected the campus network. Disable and re-enable WiFi, then retry.\nIf only one device is affected, restart that device. If the issue persists,\ndraft a support ticket containing the building, device operating system,\nerror message, and approximate failure time. Do not share passwords.\n"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "get_service_status",
+      "result": {
+        "service": "vpn",
+        "status": "degraded",
+        "message": "Fictional incident: intermittent VPN connection failures.",
+        "as_of": "2026-10-13T18:00:00Z",
+        "fixture": true,
+        "live_status": false
+      }
+    },
+    {
+      "tool": "draft_ticket",
+      "result": {
+        "summary": "My VPN connection fails. What should I try?",
+        "description": "My VPN connection fails. What should I try?",
+        "service": "vpn",
+        "state": "draft_only",
+        "submitted": false,
+        "review_required": true
+      }
+    }
+  ]
+}
